@@ -34,31 +34,11 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
 
   } );
   
-  
-  // endpoint to filter an image from a public url.
-  // IT SHOULD
-  //    1
-  //    
-  //    
-  //    3. 
-  //    4. 
-  // QUERY PARAMATERS
-  //    image_url: URL of a publicly accessible image
-  // RETURNS
-  //   the filtered image file [!!TIP res.sendFile(filteredpath); might be useful]
-
-  /**************************************************************************** */
-
-  //! END @TODO1
-  
   // Root Endpoint
   // Displays a simple message to the user
   app.get( "/", async ( req, res ) => {
     res.send("try GET /filteredimage?image_url={{}}")
   } );
-
-  
-
 
   // Start the Server
   app.listen( port, () => {
