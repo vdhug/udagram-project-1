@@ -19,18 +19,18 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
     const image_url: string = req.query.image_url;
     // validate the image_url query
     if (!image_url) {
-      return res.status(400).send({ message: 'Image url is required or malformed' });
+      return res.status(400).send({ message: "Image url is required or malformed" });
     }
     // call filterImageFromURL(image_url) to filter the image
     try {
       const photo: string = await filterImageFromURL(image_url);
       if(!photo) {
-        return res.status(400).send({ message: 'Can\'t load photo'});
+        return res.status(500).send({ message: "Can\'t load photo"});
       }
       // send the resulting file in the response
       res.status(200).sendFile(photo);
     } catch(e) {
-      res.status(422).send({ message: 'Check if the image url points to a valid file.' });
+      res.status(422).send({ message: "Check if the image url points to a valid file." });
     }
 
   } );
